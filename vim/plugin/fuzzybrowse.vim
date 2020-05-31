@@ -57,7 +57,7 @@ fun! LaunchFuzzyBrowse(...)
   let cmd = "fuzzybrowse ".l:dirIgnore.l:fileIgnore.join(a:000, ' ')
   " echom l:cmd
   let s:firstOpen = 0
-  let s:termBuf = term_start(l:cmd, {'term_finish': 'close', 'exit_cb': function('s:AfterFuzzyTerminal'), 'callback': function('s:OnTerminalOpen')})
+  let s:termBuf = term_start(['sh', '/s /c', l:cmd], {'term_finish': 'close', 'exit_cb': function('s:AfterFuzzyTerminal'), 'callback': function('s:OnTerminalOpen')})
 endfun
 
 
